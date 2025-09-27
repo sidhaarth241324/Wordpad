@@ -1,0 +1,14 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+#toolbar {
+  margin-bottom: 10px;
+}
+
+#editor {
+  border: 1px solid #ccc;
+  min-height: 300px;
+  padding: 10px;
+}
