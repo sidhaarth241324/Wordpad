@@ -11,4 +11,6 @@ body {
   border: 1px solid #ccc;
   min-height: 300px;
   padding: 10px;
+  font-family: Arial, sans-serif; /* add this line */
 }
+
