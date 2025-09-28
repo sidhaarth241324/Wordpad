@@ -1,40 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WordPad</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>WordPad</h1>
+
   <div id="toolbar">
     <button onclick="format('bold')"><b>B</b></button>
     <button onclick="format('italic')"><i>I</i></button>
     <button onclick="format('underline')"><u>U</u></button>
-    <select id="fontSize" aria-label="Font size">
-  <option value="">Font size</option>
-  <option value="12px">12</option>
-  <option value="14px">14</option>
-  <option value="16px" selected>16</option>
-  <option value="18px">18</option>
-  <option value="22px">22</option>
-  <option value="26px">26</option>
-  <option value="26px">28</option>
-  <option value="26px">30</option>
 
-</select>
-<select id="fontFamily" aria-label="Font family">
-  <option value="">Font family</option>
-  <option value="Arial" selected>Arial</option>
-  <option value="Times New Roman">Times New Roman</option>
-  <option value="Courier New">Courier New</option>
-  <option value="Georgia">Georgia</option>
-  <option value="Verdana">Verdana</option>
-</select>
+    <select id="fontFamily">
+      <option value="">Font family</option>
+      <option value="Arial">Arial</option>
+      <option value="Times New Roman">Times New Roman</option>
+      <option value="Courier New">Courier New</option>
+      <option value="Georgia">Georgia</option>
+      <option value="Verdana">Verdana</option>
+    </select>
 
+    <select id="fontSize">
+      <option value="">Font size</option>
+      <option value="12px">12</option>
+      <option value="14px">14</option>
+      <option value="16px" selected>16</option>
+      <option value="18px">18</option>
+      <option value="22px">22</option>
+      <option value="26px">26</option>
+      <option value="28px">28</option>
+      <option value="30px">30</option>
+    </select>
+
+    <label>Text:
+      <input type="color" id="fontColor" value="#000000" />
+    </label>
+    <button id="clearColor">✖</button>
+
+    <label>Highlight:
+      <input type="color" id="highlightColor" value="#ffffff" />
+    </label>
+    <button id="clearHighlight">✖</button>
   </div>
-  <div id="editor" contenteditable="true"></div>
+
+  <div id="editor" contenteditable="true">
+    <p>Type something here and try the toolbar…</p>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
