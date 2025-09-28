@@ -48,6 +48,12 @@
 <button onclick="format('insertOrderedList')">1. List</button>
 <button onclick="format('indent')">⮕</button>
 <button onclick="format('outdent')">⮔</button>
+<button onclick="insertLink()"> Link</button>
+<button onclick="insertImageURL()">🖼️ Image URL</button>
+<input type="file" id="imageInput" accept="image/*" style="display:none" onchange="insertImageFile(event)">
+<button onclick="document.getElementById('imageInput').click()">Upload Image</button>
+<button onclick="insertTable()">Table</button>
+
 
   </div>
 

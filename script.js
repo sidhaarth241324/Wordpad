@@ -247,3 +247,42 @@ if (editor) {
   });
 }
 
+function insertLink() {
+  const url = prompt("Enter the URL:");
+  if (url) {
+    document.execCommand("createLink", false, url);
+  }
+}
+function insertImageURL() {
+  const url = prompt("Enter image URL:");
+  if (url) {
+    document.execCommand("insertImage", false, url);
+  }
+}
+
+function insertImageFile(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    document.execCommand("insertImage", false, e.target.result);
+  };
+  reader.readAsDataURL(file);
+}
+function insertTable() {
+  const rows = parseInt(prompt("Number of rows:", 2), 10);
+  const cols = parseInt(prompt("Number of columns:", 2), 10);
+  if (!rows || !cols) return;
+
+  let table = "<table border='1' style='border-collapse:collapse; width:100%;'>";
+  for (let r = 0; r < rows; r++) {
+    table += "<tr>";
+    for (let c = 0; c < cols; c++) {
+      table += "<td style='padding:5px;'>Cell</td>";
+    }
+    table += "</tr>";
+  }
+  table += "</table><br>";
+
+  document.execCommand("insertHTML", false, table);
+}
