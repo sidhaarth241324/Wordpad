@@ -352,3 +352,36 @@ const darkModeBtn = document.getElementById('darkModeBtn');
 darkModeBtn.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
 });
+// Key to store editor content
+const editorStorageKey = 'wordpadContent';
+
+// Save content to localStorage
+function saveEditorContent() {
+  if (editor) {
+    localStorage.setItem(editorStorageKey, editor.innerHTML);
+  }
+}
+
+// Load content from localStorage
+function loadEditorContent() {
+  const saved = localStorage.getItem(editorStorageKey);
+  if (saved && editor) {
+    editor.innerHTML = saved;
+  }
+}
+
+// Auto-save on input
+if (editor) {
+  editor.addEventListener('input', saveEditorContent);
+}
+
+// Load content on page load
+window.addEventListener('DOMContentLoaded', loadEditorContent);
+const saveBtn = document.getElementById('saveContentBtn');
+
+if (saveBtn && editor) {
+  saveBtn.addEventListener('click', () => {
+    localStorage.setItem(editorStorageKey, editor.innerHTML);
+    alert('Content saved!');
+  });
+}
