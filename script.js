@@ -139,7 +139,7 @@ function clearFontSize() {
   applyStyle({ fontSize: '' });
 }
 
-/* === ✅ FIXED COLOR === */
+
 function setColor(hex) {
   if (!hex) return;
   hex = hex.toLowerCase();
@@ -157,7 +157,7 @@ function clearColor() {
   const el = $('#fontColor'); if (el) el.value = '#000000';
 }
 
-/* === ✅ FIXED HIGHLIGHT === */
+
 function setHighlight(hex) {
   if (!hex) return;
   hex = hex.toLowerCase();
