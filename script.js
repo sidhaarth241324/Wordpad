@@ -385,3 +385,20 @@ if (saveBtn && editor) {
     alert('Content saved!');
   });
 }
+function insertPageBreak() {
+  const br = document.createElement('div');
+  br.className = 'page-break';
+  br.innerHTML = '&nbsp;'; // optional invisible content
+  const sel = window.getSelection();
+  if (!sel.rangeCount) return;
+  const range = sel.getRangeAt(0);
+  range.insertNode(br);
+  range.collapse(false);
+  editor.focus();
+}
+function insertPageBreak() {
+  const span = document.createElement('div');
+  span.className = 'page-break';
+  editor.appendChild(span);
+  editor.appendChild(document.createElement('br')); // optional, move caret after
+}
