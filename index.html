@@ -59,6 +59,11 @@
 <button id="copyTextBtn" title="Copy as Plain Text">Copy Text</button>
 <button id="copyHtmlBtn" title="Copy as HTML">Copy HTML</button>
 <button id="previewBtn" title="Preview Document">Preview</button>
+<!-- Export Options -->
+<input type="text" id="docTitle" placeholder="Document Title" title="Enter document title">
+<input type="text" id="docAuthor" placeholder="Author" title="Enter author name">
+<button id="exportWordBtn" title="Export as Word (.doc)">Export Word</button>
+<button id="exportPdfBtn" title="Export as PDF">Export PDF</button>
 
 
   </div>
@@ -66,6 +71,8 @@
   <div id="editor" contenteditable="true">
     <p>Type something here and try the toolbar…</p>
   </div>
+<!-- html2pdf library for PDF export -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <script src="script.js"></script>
 </body>

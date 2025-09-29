@@ -309,3 +309,42 @@ document.getElementById("previewBtn").addEventListener("click", () => {
     previewWindow.document.write("</body></html>");
     previewWindow.document.close();
 });
+document.getElementById('exportWordBtn').addEventListener('click', () => {
+  const title = document.getElementById('docTitle').value || 'Untitled';
+  const author = document.getElementById('docAuthor').value || 'Anonymous';
+  const content = editor.innerHTML;
+
+  const html = `
+    <html>
+      <head>
+        <meta charset="UTF-8">
+        <title>${title}</title>
+      </head>
+      <body>
+        <h1>${title}</h1>
+        <p><em>Author: ${author}</em></p>
+        ${content}
+      </body>
+    </html>
+  `;
+  
+  const blob = new Blob(['\ufeff', html], { type: 'application/msword' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = title + '.doc';
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById('exportPdfBtn').addEventListener('click', () => {
+  const title = document.getElementById('docTitle').value || 'Untitled';
+  const author = document.getElementById('docAuthor').value || 'Anonymous';
+  const clone = editor.cloneNode(true);
+  
+  const header = document.createElement('div');
+  header.innerHTML = `<h1>${title}</h1><p><em>Author: ${author}</em></p>`;
+  clone.prepend(header);
+
+  html2pdf().from(clone).save(title + '.pdf');
+});
