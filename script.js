@@ -348,3 +348,7 @@ document.getElementById('exportPdfBtn').addEventListener('click', () => {
 
   html2pdf().from(clone).save(title + '.pdf');
 });
+const darkModeBtn = document.getElementById('darkModeBtn');
+darkModeBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
