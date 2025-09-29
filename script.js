@@ -6,6 +6,9 @@ const editor = $('#editor');
 function format(command, value = null) {
   document.execCommand(command, false, value);
 }
+document.getElementById("clearFormatBtn").addEventListener("click", () => {
+    document.execCommand("removeFormat", false, null);
+});
 
 
 let currentFontFamily = null;
@@ -101,6 +104,9 @@ function applyStyle(styles) {
   sel.addRange(r3);
   if (editor) editor.focus();
 }
+document.getElementById("resetBtn").addEventListener("click", () => {
+    document.getElementById("editor").innerHTML = "";
+});
 
 /* ---------- setters and clearers ---------- */
 function setFontFamily(family) {
@@ -286,3 +292,20 @@ function insertTable() {
 
   document.execCommand("insertHTML", false, table);
 }
+document.getElementById("copyTextBtn").addEventListener("click", () => {
+    const text = document.getElementById("editor").innerText;
+    navigator.clipboard.writeText(text);
+    alert("Copied plain text!");
+});
+document.getElementById("copyHtmlBtn").addEventListener("click", () => {
+    const html = document.getElementById("editor").innerHTML;
+    navigator.clipboard.writeText(html);
+    alert("Copied HTML!");
+});
+document.getElementById("previewBtn").addEventListener("click", () => {
+    const previewWindow = window.open("", "Preview", "width=800,height=600");
+    previewWindow.document.write("<html><head><title>Preview</title></head><body>");
+    previewWindow.document.write(document.getElementById("editor").innerHTML);
+    previewWindow.document.write("</body></html>");
+    previewWindow.document.close();
+});
